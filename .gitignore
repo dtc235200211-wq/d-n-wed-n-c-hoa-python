@@ -1,0 +1,15 @@
+# Môi trường ảo (Quan trọng nhất)
+venv/
+env/
+ENV/
+
+# Các file rác của Python
+**/__pycache__/
+*.py[cod]
+
+# File cấu hình riêng (như mật khẩu, API key)
+.env
+
+# File của IDE
+.idea/
+.vscode/

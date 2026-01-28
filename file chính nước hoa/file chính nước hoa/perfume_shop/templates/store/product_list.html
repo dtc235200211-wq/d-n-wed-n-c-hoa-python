@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Sản phẩm{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Sản phẩm</h3>
+  {% if user.is_authenticated %}
+    <a class="btn btn-primary" href="/store/products/create/">+ Thêm sản phẩm</a>
+  {% endif %}
+</div>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Tên</th><th>Hãng</th><th>Giá</th><th>Tồn kho</th><th>Thao tác</th>
+  </tr>
+  {% for p in products %}
+  <tr>
+    <td>{{ p.name }}</td>
+    <td>{{ p.brand }}</td>
+    <td>{{ p.price }}</td>
+    <td>{{ p.stock }}</td>
+    <td>
+      {% if user.is_authenticated %}
+        <a class="btn btn-sm btn-warning" href="/store/products/{{p.id}}/edit/">Sửa</a>
+        <a class="btn btn-sm btn-danger" href="/store/products/{{p.id}}/delete/">Xóa</a>
+      {% else %}
+        -
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

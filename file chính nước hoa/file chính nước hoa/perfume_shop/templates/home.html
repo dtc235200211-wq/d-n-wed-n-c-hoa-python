@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h3>Sản phẩm mới</h3>
+<div class="row g-3">
+  {% for p in products %}
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <p class="card-text">
+            Brand: {{ p.brand }} <br/>
+            Giá: {{ p.price }} VNĐ <br/>
+            Tồn: {{ p.stock }}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>Chưa có sản phẩm mẫu. Chạy: <code>py manage.py seed</code></p>
+  {% endfor %}
+</div>
+{% endblock %}

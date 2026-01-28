@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Xóa sản phẩm{% endblock %}
+
+{% block content %}
+<h3>Xóa sản phẩm</h3>
+<p>Bạn chắc chắn muốn xóa: <b>{{ product.name }}</b> ?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-danger">Xóa</button>
+  <a class="btn btn-secondary" href="/store/products/">Hủy</a>
+</form>
+{% endblock %}
